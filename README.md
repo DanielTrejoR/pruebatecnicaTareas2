@@ -1,58 +1,247 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Prueba Técnica - Gestor de Tareas
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplicación web desarrollada con Laravel, MySQL y Vue 3 para la gestión de usuarios y tareas.
 
-## About Laravel
+## Tecnologías
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP 8.5+
+- Laravel 13
+- MySQL 8
+- Laravel Sanctum
+- Vue 3
+- TypeScript
+- Vite
+- Fetch API
+- ES6 Modules
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requisitos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP 8.5 o superior
+- Composer
+- Node.js y npm
+- MySQL 8 o superior
 
-## Learning Laravel
+## Instalación
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+Clonar el repositorio:
 
 ```bash
-composer require laravel/boost --dev
+git clone <URL_DEL_REPOSITORIO>
+cd pruebatecnicaTareas2
 
-php artisan boost:install
-```
+Instalar las dependencias de PHP:
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+composer install
 
-## Contributing
+Instalar las dependencias de JavaScript:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+npm install
 
-## Code of Conduct
+Crear el archivo de entorno:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+cp .env.example .env
 
-## Security Vulnerabilities
+Generar la clave de la aplicación:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+php artisan key:generate
+Configuración de la base de datos
 
-## License
+Configurar las credenciales de MySQL en el archivo .env:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=pruebatecnica_tareas
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_password
+
+Crear la base de datos en MySQL si todavía no existe.
+
+Migraciones y Seeder
+
+Ejecutar:
+
+php artisan migrate --seed
+
+El seeder crea un usuario de prueba:
+
+Email: demo@example.com
+Password: password123
+Ejecución del proyecto
+
+En una terminal ejecutar:
+
+php artisan serve
+
+En otra terminal ejecutar:
+
+npm run dev
+
+La aplicación estará disponible en:
+
+http://localhost:8000
+Autenticación
+
+La API utiliza Laravel Sanctum mediante personal access tokens.
+
+Para iniciar sesión:
+
+POST /api/login
+
+Ejemplo de petición:
+
+{
+    "email": "demo@example.com",
+    "password": "password123"
+}
+
+La respuesta contiene un token que el frontend utiliza para autenticarse en las demás peticiones:
+
+Authorization: Bearer <token>
+
+El token se almacena temporalmente en sessionStorage del navegador.
+
+API
+Usuarios
+
+Listar usuarios:
+
+GET /api/users
+
+Crear usuario:
+
+POST /api/users
+
+Ejemplo:
+
+{
+    "name": "Juan Pérez",
+    "email": "juan@example.com",
+    "password": "password123"
+}
+Tareas
+
+Listar tareas de un usuario:
+
+GET /api/users/{user}/tasks
+
+Crear una tarea:
+
+POST /api/users/{user}/tasks
+
+Ejemplo:
+
+{
+    "title": "Preparar reporte",
+    "description": "Preparar el reporte mensual del proyecto."
+}
+
+Completar una tarea:
+
+PATCH /api/tasks/{task}/complete
+
+Eliminar una tarea:
+
+DELETE /api/tasks/{task}
+Filtros y ordenamiento
+
+Las tareas pueden filtrarse por estado.
+
+Tareas completadas:
+
+GET /api/users/{user}/tasks?completed=true
+
+Tareas pendientes:
+
+GET /api/users/{user}/tasks?completed=false
+
+También pueden ordenarse por título:
+
+GET /api/users/{user}/tasks?sort=title
+
+o por fecha:
+
+GET /api/users/{user}/tasks?sort=date
+Validación y manejo de errores
+
+Las peticiones de creación utilizan Laravel FormRequest para validar los datos de entrada.
+
+La API contempla respuestas HTTP para diferentes situaciones, entre ellas:
+
+201 para recursos creados correctamente.
+403 para operaciones no autorizadas.
+404 cuando el recurso solicitado no existe.
+422 cuando los datos enviados no cumplen las reglas de validación.
+500 para errores internos no controlados.
+Arquitectura
+Laravel expone una API REST protegida mediante Sanctum.
+Los Controllers reciben las peticiones y delegan la lógica.
+Los FormRequests centralizan la validación de entrada.
+AuthService encapsula la autenticación y generación de tokens.
+UserService encapsula las operaciones relacionadas con usuarios.
+TaskManager concentra las operaciones relacionadas con tareas.
+Eloquent administra los modelos y la relación User-Task.
+Vue 3 consume la API mediante Fetch, async/await y módulos ES6.
+Frontend
+
+La interfaz está desarrollada con Vue 3 y TypeScript.
+
+Las peticiones HTTP se realizan mediante la Fetch API y se encuentran centralizadas en:
+
+resources/js/services/api.ts
+
+Los tipos utilizados por el frontend se encuentran en:
+
+resources/js/types/task.ts
+
+La interfaz permite:
+
+Iniciar sesión.
+Listar usuarios.
+Crear usuarios.
+Seleccionar un usuario.
+Listar sus tareas.
+Crear tareas.
+Completar tareas.
+Eliminar tareas.
+Filtrar tareas completadas y pendientes.
+Ordenar tareas por título o fecha.
+Estructura principal
+app/
+├── Http/
+│   ├── Controllers/
+│   │   └── Api/
+│   └── Requests/
+├── Models/
+└── Services/
+
+database/
+├── migrations/
+└── seeders/
+
+resources/
+├── js/
+│   ├── pages/
+│   ├── services/
+│   └── types/
+└── views/
+
+routes/
+└── api.php
+Credenciales de prueba
+
+Usuario creado automáticamente por el seeder:
+
+Email: demo@example.com
+Password: password123
+
+Estas credenciales son únicamente para facilitar la ejecución y demostración del proyecto.
+
+Autor
+
+Prueba técnica desarrollada como parte de un proceso de selección para Programador Laravel.
+
+
+Una corrección respecto al README anterior: **ahora sí incluí la creación de usuarios desde la API, ejemplos de payloads, manejo de errores, almacenamiento del token y la estructura del proyecto**, que reflejan mejor lo que realmente construimos.
+
+La parte de arquitectura se mantiene en **8 líneas**, dentro del máximo de 10 solicitado por la prueba. :contentReference[oaicite:0]{index=0}
