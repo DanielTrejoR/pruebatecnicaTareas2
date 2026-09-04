@@ -68,7 +68,7 @@ El seeder crea un usuario de prueba:
 Email: demo@example.com
 Password: password123
 Ejecución del proyecto
-
+```bash
 En una terminal ejecutar:
 
 php artisan serve
