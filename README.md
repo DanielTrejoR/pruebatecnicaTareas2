@@ -207,6 +207,7 @@ Eliminar tareas.
 Filtrar tareas completadas y pendientes.
 Ordenar tareas por título o fecha.
 Estructura principal
+
 app/
 ├── Http/
 │   ├── Controllers/
@@ -225,6 +226,7 @@ resources/
 │   ├── services/
 │   └── types/
 └── views/
+
 
 routes/
 └── api.php
