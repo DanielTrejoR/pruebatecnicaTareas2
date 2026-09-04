@@ -207,7 +207,7 @@ Eliminar tareas.
 Filtrar tareas completadas y pendientes.
 Ordenar tareas por título o fecha.
 Estructura principal
-
+```
 app/
 ├── Http/
 │   ├── Controllers/
@@ -230,13 +230,15 @@ resources/
 
 routes/
 └── api.php
-Credenciales de prueba
+```
 
+Credenciales de prueba
+```
 Usuario creado automáticamente por el seeder:
 
 Email: demo@example.com
 Password: password123
-
+```
 Estas credenciales son únicamente para facilitar la ejecución y demostración del proyecto.
 
 Autor
