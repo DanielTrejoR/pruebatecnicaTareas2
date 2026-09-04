@@ -60,9 +60,9 @@ Crear la base de datos en MySQL si todavía no existe.
 Migraciones y Seeder
 
 Ejecutar:
-
+```
 php artisan migrate --seed
-
+```
 El seeder crea un usuario de prueba:
 ```
 Email: demo@example.com
