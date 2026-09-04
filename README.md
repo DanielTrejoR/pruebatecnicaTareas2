@@ -239,9 +239,5 @@ Estas credenciales son únicamente para facilitar la ejecución y demostración 
 
 Autor
 
-Prueba técnica desarrollada como parte de un proceso de selección para Programador Laravel.
-
-
-Una corrección respecto al README anterior: **ahora sí incluí la creación de usuarios desde la API, ejemplos de payloads, manejo de errores, almacenamiento del token y la estructura del proyecto**, que reflejan mejor lo que realmente construimos.
-
-La parte de arquitectura se mantiene en **8 líneas**, dentro del máximo de 10 solicitado por la prueba. :contentReference[oaicite:0]{index=0}
+Prueba Prueba Técnica – Programador
+Laravel + OOP + ECMAScript + MySQL
