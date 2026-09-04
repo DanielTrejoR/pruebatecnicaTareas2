@@ -168,21 +168,21 @@ Las peticiones de creación utilizan Laravel FormRequest para validar los datos 
 
 La API contempla respuestas HTTP para diferentes situaciones, entre ellas:
 
-201 para recursos creados correctamente.
-403 para operaciones no autorizadas.
-404 cuando el recurso solicitado no existe.
-422 cuando los datos enviados no cumplen las reglas de validación.
-500 para errores internos no controlados.
-Arquitectura
-Laravel expone una API REST protegida mediante Sanctum.
-Los Controllers reciben las peticiones y delegan la lógica.
-Los FormRequests centralizan la validación de entrada.
-AuthService encapsula la autenticación y generación de tokens.
-UserService encapsula las operaciones relacionadas con usuarios.
-TaskManager concentra las operaciones relacionadas con tareas.
-Eloquent administra los modelos y la relación User-Task.
-Vue 3 consume la API mediante Fetch, async/await y módulos ES6.
-Frontend
+-201 para recursos creados correctamente.
+-403 para operaciones no autorizadas.
+-404 cuando el recurso solicitado no existe.
+-422 cuando los datos enviados no cumplen las reglas de validación.
+-500 para errores internos no controlados.
+-Arquitectura
+-Laravel expone una API REST protegida mediante Sanctum.
+-Los Controllers reciben las peticiones y delegan la lógica.
+-Los FormRequests centralizan la validación de entrada.
+-AuthService encapsula la autenticación y generación de tokens.
+-UserService encapsula las operaciones relacionadas con usuarios.
+-TaskManager concentra las operaciones relacionadas con tareas.
+-Eloquent administra los modelos y la relación User-Task.
+-Vue 3 consume la API mediante Fetch, async/await y módulos ES6.
+-Frontend
 
 La interfaz está desarrollada con Vue 3 y TypeScript.
 
