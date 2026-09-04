@@ -25,7 +25,6 @@ Aplicación web desarrollada con Laravel, MySQL y Vue 3 para la gestión de usua
 
 Clonar el repositorio:
 
-```bash
 git clone <URL_DEL_REPOSITORIO>
 cd pruebatecnicaTareas2
 
@@ -33,7 +32,7 @@ Instalar las dependencias de PHP:
 
 composer install
 
-Instalar las dependencias de JavaScript:
+## Instalar las dependencias de JavaScript:
 
 npm install
 
@@ -68,7 +67,8 @@ El seeder crea un usuario de prueba:
 Email: demo@example.com
 Password: password123
 Ejecución del proyecto
-```bash
+
+
 En una terminal ejecutar:
 
 php artisan serve
